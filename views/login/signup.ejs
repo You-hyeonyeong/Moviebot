@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        // function checks() {
+        //     var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+        //     var getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/);
+        //     var getName = RegExp(/^[가-힣]+$/);
+        //     var fmt = RegExp(/^\d{6}[1234]\d{6}$/); //형식 설정
+        //     var buf = new Array(13); //주민등록번호 배열
+
+        //     //아이디 공백 확인
+        //     if ($("input[name=userId]").val() == "") {
+        //         alert("아이디 입력바람");
+        //         $("input[name=userId]").focus();
+        //         return false;
+        //     }
+
+        //     //아이디 유효성검사
+        //     if (!getCheck.test($("input[name=userId]").val())) {
+        //         alert("형식에 맞게 입력해주세요");
+        //         $("input[name=userId]").val("");
+        //         $("input[name=userId]").focus();
+        //         return false;
+        //     }
+
+        //     //비밀번호 공백 확인
+        //     if ($("input[name=userPw]").val() == "") {
+        //         alert("패스워드 입력바람");
+        //         $("input[name=userPw]").focus();
+        //         return false;
+        //     }
+
+
+        //     //아이디 비밀번호 같음 확인
+        //     if ($("input[name=userId]").val() == $("input[name=userPw]").val()) {
+        //         alert("아이디와 비밀번호가 같습니다");
+        //         $("input[name=userPw]").val("");
+        //         $("input[name=userPw]").focus();
+        //         return false;
+        //     }
+
+        //     //비밀번호 유효성검사
+        //     if (!getCheck.test($("input[name=userPw]").val())) {
+        //         alert("형식에 맞게 입력해주세요");
+        //         $("input[name=userPw]").val("");
+        //         $("input[name=userPw]").focus();
+        //         return false;
+        //     }
+
+
+        //     //비밀번호 서로확인
+        //     if ($("input[name=userPw]").val() != $("input[name=userPwR]").val()) {
+        //         alert("비밀번호가 상이합니다");
+        //         $("input[name=userPw]").val("");
+        //         $("input[name=userPwR]").val("");
+        //         $("input[name=userPw]").focus();
+        //         return false;
+        //     }
+
+        //     //이메일 공백 확인
+        //     if ($("#mail").val() == "") {
+        //         alert("이메일을 입력해주세요");
+        //         $("#mail").focus();
+        //         return false;
+        //     }
+
+        //     //이름 공백 검사
+        //     if ($("input[name=userName]").val() == "") {
+        //         alert("이름을 입력해주세요");
+        //         $("input[name=userName]").focus();
+        //         return false;
+        //     }
+
+        //     //이름 유효성 검사
+        //     if (!getCheck.test($("input[name=userName]").val())) {
+        //         alert("이름형식에 맞게 입력해주세요")
+        //         $("input[name=userName]").val("");
+        //         $("input[name=userName]").focus();
+        //         return false;
+        //     }
+        // }
+    </script>
+    <meta charset="UTF-8">
+    <title>MovieBot</title>
+</head>
+<style>
+    input {
+        width: 200px;
+        height: 30px;
+        border: 1px solid orange;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <h3>회원 가입</h3>
+    <form action="/auth/signup" method="post" onsubmit="return checks()">
+        <table>
+            <tr>
+                <td>아이디 : </td>
+                <td><input type="text" name="userId"></td>
+            </tr>
+            <tr>
+                <td>비밀번호 : </td>
+                <td><input type="password" name="userPw"></td>
+            </tr>
+            <tr>
+                <td>비밀번호 확인 : </td>
+                <td><input type="password" name="userPwR"></td>
+            </tr>
+            <tr>
+                <td>이름 : </td>
+                <td><input type="text" name="userName"></td>
+            </tr>
+            <td><input type="submit" value="회원가입"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

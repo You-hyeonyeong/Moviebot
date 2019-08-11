@@ -1,0 +1,24 @@
+{
+  "name": "moviebot",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "async": "^3.1.0",
+    "bootstrap": "^4.3.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^2.6.2",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "http-errors": "^1.6.3",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.1.1",
+    "morgan": "~1.9.1",
+    "mysql2": "^1.6.5",
+    "promise-mysql": "^4.1.0",
+    "request": "^2.88.0"
+  }
+}

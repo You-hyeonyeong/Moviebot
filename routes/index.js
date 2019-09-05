@@ -8,11 +8,6 @@ router.use('/main', require('./main/index'));
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
 })
-router.get('/img', function(req, res, next) {
-  fs.readFile('logo_bg.png'), function(err,data){
-    res.end(data);
-  }  
-});
 
 
 

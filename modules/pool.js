@@ -15,7 +15,7 @@ module.exports = { // 두 개의 메소드 module화
             connection.rollback(() => {});
             next(err);
         } finally {
-            pool.releaseConnection(connection); // waterfall 에서는 connection.release()를 사용했지만, 이 경우 pool.releaseConnection(connection) 을 해준다.
+            connection.release(); // waterfall 에서는 connection.release()를 사용했지만, 이 경우 pool.releaseConnection(connection) 을 해준다.
             return result;
         }
 
@@ -35,7 +35,7 @@ module.exports = { // 두 개의 메소드 module화
             next(err);
             
         } finally {
-            pool.releaseConnection(connection); // waterfall 에서는 connection.release()를 사용했지만, 이 경우 pool.releaseConnection(connection) 을 해준다.
+            connection.release(); // waterfall 에서는 connection.release()를 사용했지만, 이 경우 pool.releaseConnection(connection) 을 해준다.
             return result;
         }
     },
@@ -52,7 +52,7 @@ module.exports = { // 두 개의 메소드 module화
             connection.rollback(() => {});
             next(err);
         } finally {
-            pool.releaseConnection(connection);
+            connection.release();
             return result;
         }
     },

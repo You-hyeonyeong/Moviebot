@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 const db = require('../../modules/pool');
 const encrytion = require('../../modules/encryption')
+const utils = require('../../modules/utils/utils');
+const resMessage = require('../../modules/utils/responseMassage');
+const statusCode = require('../../modules/utils/statusCode');
 
 //회원가입 post
 router.post('/', async (req, res) => {
@@ -11,8 +14,8 @@ router.post('/', async (req, res) => {
     const pw = req.body.userPw;
     const name = req.body.userName;
 
-    const selectQuery = 'SELECT * FROM movibot.user.movibot WHERE userId = ?';
-    const insertQuery = 'INSERT INTO movibot.user (userId, userPw, userName, salt) VALUES (?, ?, ?, ?)';
+    const selectQuery = 'SELECT userId FROM moviebot.user WHERE userId = ?';
+    const insertQuery = 'INSERT INTO moviebot.user (userId, userPw, userName, salt) VALUES (?, ?, ?, ?)';
 
     if (!id || !pw || !name) {
         res.status(200).send("빈칸이 있습니다") //이거 alert으로 유효성 처리해야할텐데
@@ -20,12 +23,13 @@ router.post('/', async (req, res) => {
         const selectResult = await db.queryParam_Arr(selectQuery, [id]);
         if (!selectResult) {
             res.status(200).send(utils.successFalse(statusCode.DB_ERROR, resMessage.USER_DB_SELECT_ERROR));
-        } else if (selectResult.length >= 1) {
-            res.status(200).send(utils.successFalse(statusCode.BAD_REQUEST, resMessage.ALREADY_USER));
+        } else if (selectResult.length = 2) {
+            console.log(selectResult.length);
+            console.log(selectResult);
+            res.status(200).send(utils.successTrue(statusCode.BAD_REQUEST, resMessage.ALREADY_USER, selectResult));
         } else {
             const encrytionResult = await encrytion.encrytion(pw);
-
-            const insertResult = await db.queryParam_Arr(insertQuery, [id, encrytionResult.hashedPassword, name, encrytionResult.salt]);
+            const insertResult = await db.queryParam_Parse(insertQuery, [id, encrytionResult.hashedPassword, name, encrytionResult.salt]);
             console.log(insertResult);
 
             if (!insertResult) {

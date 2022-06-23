@@ -15,7 +15,7 @@
     "express-ejs-layouts": "^2.5.0",
     "http-errors": "^1.6.3",
     "jquery": "^3.4.1",
-    "jsdom": "^15.1.1",
+    "jsdom": "^16.5.0",
     "morgan": "~1.9.1",
     "mysql2": "^1.7.0",
     "promise-mysql": "^3.3.2",
